@@ -1,0 +1,18 @@
+databases:
+  - name: expense_meter
+    databaseName: expense_meter
+    user: expense_meter
+
+services:
+  - type: web
+    name: expense_meter
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: expense_meter
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
