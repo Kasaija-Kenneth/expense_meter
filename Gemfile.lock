@@ -271,6 +271,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  bundle lock --add-platform x86_64-linux
 
 DEPENDENCIES
   bootsnap
